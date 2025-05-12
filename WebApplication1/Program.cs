@@ -1,7 +1,25 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using System.Configuration;
+using WebApplication1.Core.Entities;
+using WebApplication1.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders();
+
+builder.Services.AddScoped<SignInManager<ApplicationUser>, SignInManager<ApplicationUser>>();
+
+builder.Services.AddScoped<UserManager<ApplicationUser>, UserManager<ApplicationUser>>();
 
 var app = builder.Build();
 
