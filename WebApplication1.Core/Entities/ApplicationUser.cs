@@ -10,8 +10,8 @@ namespace WebApplication1.Core.Entities
 {
     public class ApplicationUser : IdentityUser
     {
-        public Guid Id { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public long Id { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
     }
 }
