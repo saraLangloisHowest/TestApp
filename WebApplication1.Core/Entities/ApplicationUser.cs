@@ -10,8 +10,10 @@ namespace WebApplication1.Core.Entities
 {
     public class ApplicationUser
     {
-        public string Id { get; set; }
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
+        public bool IsAssesor { get; set; }
+        public bool IsAdmin { get; set; }
+        public string UserName { get; set; }
+        public ICollection<Assessment> AssessmentsAsUser { get; set; }
+        public ICollection<Assessment> AssessmentsAsAssessor { get; set; }
     }
 }

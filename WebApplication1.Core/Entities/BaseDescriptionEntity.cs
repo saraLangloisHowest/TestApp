@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication1.Core.Entities
 {
-    public class BaseDescriptionEntity
+    public class BaseDescriptionEntity : BaseEntity
     {
 
 
