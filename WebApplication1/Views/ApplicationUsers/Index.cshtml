@@ -1,0 +1,10 @@
+﻿
+@model IEnumerable<BaseViewModel>
+
+<h1>Index</h1>
+
+@foreach(BaseViewModel student in Model)
+            {
+                <p>@student.Id - @student.Name </p>
+            }
+
