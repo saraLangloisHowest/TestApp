@@ -16,8 +16,8 @@ namespace WebApplication1.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var users = await _dbContext.ApplicationUsers.Select(u=>new BaseViewModel { Id = u.Id.ToString(), Name = u.UserName }).ToListAsync();
-            return View();
+            var users = await _dbContext.ApplicationUsers.Select(u=>new BaseViewModel { Id = u.Id.ToString(), Name = u.Lastname}).ToListAsync();
+            return View(users);
         }
     }
 }
