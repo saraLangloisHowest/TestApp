@@ -8,7 +8,7 @@ namespace WebApplication1.Core.Entities
 {
     public class MaturityLevel : BaseEntity
     {
-        public int Level { get; set; }
+        public string Level { get; set; }
         public int Value { get; set; }
         public string Documentation { get; set; }
         public string Implementation { get; set; }

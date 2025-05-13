@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication1.Core.Entities
 {
-    public class ApplicationUser
+    public class ApplicationUser : BaseEntity
     {
         public bool IsAssesor { get; set; }
         public bool IsAdmin { get; set; }

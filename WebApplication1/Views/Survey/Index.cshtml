@@ -1,0 +1,15 @@
+﻿
+@model SurveyIndexViewModel
+    @*SurveyIndexViewModel surveyIndexVM = new SurveyIndexViewModel();
+    surveyIndexVM.Municipality = new BaseViewModel{Id=assessment.Municipality.Id, Name=assessment.Municipality.Name};
+    surveyIndexVM.User = new BaseViewModel { Id = userId, Name = user.UserName };
+    surveyIndexVM.Assessor = new BaseViewModel { Id = assessment.AssessorId, Name = assessment.Assessor.UserName };
+    surveyIndexVM.Maturity = new BaseViewModel { Id=assessment.MaturityId, Name=assessment.Maturity.Name};*@
+
+<h1>Assessment by @Model.User</h1>
+<p>Assessor: @Model.Assessor</p>
+<p>Maturity: @Model.Maturity</p>
+<p>Municipality: @Model.Municipality</p>
+<a asp-controller="Survey" asp-action="AssessmentDetails" asp-route-assessmentId ="@Model.AssessmentId">Details</a>
+
+

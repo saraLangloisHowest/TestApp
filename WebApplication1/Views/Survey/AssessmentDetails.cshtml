@@ -1,0 +1,127 @@
+﻿
+@model SurveyAssessmentDetailsViewModel
+
+<h1>Assessment Details</h1>
+<p>User: @Model.User</p>
+<p>Assessor: @Model.Assessor</p>
+<p>Maturity: @Model.Maturity</p>
+<p>Municipality: @Model.Municipality</p>
+
+<table class="table table-striped">
+
+    <tr class="d-table-row">
+        <th colspan="2">
+            CyberFundamentals Tool version:
+        </th>
+        <th>
+            2024-09-17
+        </th>
+        <th>
+            Self-Assessment Completion Date:
+        </th>
+        <th>
+            (TODO)
+        </th>
+        <th>
+
+        </th>
+        <th colspan="8">
+            IMPORTANT
+        </th>
+
+    </tr>
+    <tr class="d-table-row">
+        <th>
+            Function
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Key measure
+        </th>
+        <th>
+            Subcategory
+        </th>
+        <th>
+            Requirement
+        </th>
+        <th>
+            Guidance
+        </th>
+        <th>
+            Documentation Score
+        </th>
+        <th>
+            Implementation Score
+        </th>
+        <th>
+            Subcategory Documentation Maturity Score
+        </th>
+        <th>
+            Subcategory Implementation Maturity Score
+        </th>
+        <th>
+            Category Documentation Maturity Score
+        </th>
+        <th>
+            Category Implementation Maturity Score
+        </th>
+        <th>
+            Comments and/or additional information
+        </th>
+        <th>
+            Assessor comments
+        </th>
+    </tr>
+
+    @foreach (BaseDescriptionViewModel function in Model.Functions)
+    {
+        @foreach(BaseDescriptionViewModel category in function.Children)
+                {
+                    @foreach(BaseDescriptionViewModel subCategory in category.Children)
+                    {
+                        @foreach(RequirementViewModel requirement in (IEnumerable<RequirementViewModel>)subCategory.Children)
+                        {
+                            <tr>
+                                <td rowspan="@function.Children.SelectMany(c=>c.Children).SelectMany(s=>s.Children).Count()" colspan="14">
+                                    @function.Name
+                                </td>
+                                @*<td rowspan="@category.Children.SelectMany(s=>s.Children).Count()">
+                                    @category.Name
+                                </td>
+                                <td rowspan="@category.Children.SelectMany(s=>s.Children).Count()">
+                                    Key Measure
+                                </td>
+                                <td rowspan="@subCategory.Children.Count()">
+                                    @subCategory.Name
+                                </td>
+                                <td>
+                                    @requirement.Name
+                                </td>
+                                <td>
+                                    <ul>
+                                        @foreach(GuidanceViewModel guidance in requirement.Guidances)
+                                        {
+                                            <li>
+                                                @guidance.Description
+                                            </li>
+                                        }
+                                    </ul>
+                                </td>
+                                <td>
+                                    @requirement.Score.DocumentationMaturityScore
+                                </td>
+                                <td>
+                                    @requirement.Score.ImplementationMaturityScore
+                                </td>
+                                <td colspan="6">
+                                    Blabla
+                                </td>*@
+                            </tr>
+                        }
+                    }
+                }
+    }
+
+</table>
